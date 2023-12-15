@@ -1,0 +1,58 @@
+
+Cryptographic Data Management Application Documentation
+
+Introduction
+The Cryptographic Data Management application is a .NET application designed to securely store and manage encrypted data in a SQL Server database. This document provides an overview of the encryption methodology, database schema, and instructions on using the application's user interface.
+
+Encryption Algorithm
+The application utilizes the Advanced Encryption Standard (AES) algorithm for data encryption. AES is a widely adopted symmetric encryption algorithm that ensures confidentiality and security of sensitive information. The application uses AES in Galois/Counter Mode (GCM) for encryption and decryption, providing authenticated encryption with associated data (AEAD).
+
+Database Schema
+EncryptedData Table
+The primary entity in the application is the EncryptedData table, which stores the encrypted data along with other necessary information.
+
+Column	                  Type	               Description
+Id	                  INT	               Auto-incremented primary key.
+Data	                  NVARCHAR	       Encrypted data using AES-GCM.
+InitializationVector	  VARBINARY	       Binary data required for decryption.
+Timestamp	          DATETIME	       Timestamp indicating when the data was added.
+
+Using the User Interface
+1. Add Encrypted Data
+To add encrypted data:
+
+Launch the application.
+Navigate to the "Add Data" section.
+Enter the plaintext data in the input field.
+Click the "Encrypt and Save" button.
+The application will encrypt the provided data using AES-GCM and store it in the database.
+
+2. View Encrypted Data
+To view encrypted data:
+
+Navigate to the "View Data" section.
+The application will display a list of encrypted data entries.
+Click on a specific entry to view details, including the decrypted data.
+3. Decrypt Data
+To decrypt data:
+
+Navigate to the "View Data" section.
+Click on a specific entry.
+The application will prompt for the decryption key.
+Enter the correct key and click "Decrypt."
+The decrypted data will be displayed, ensuring secure access to the original information.
+
+4. Update or Delete Data
+To update or delete encrypted data:
+
+Navigate to the "View Data" section.
+Click on a specific entry.
+Choose the "Update" or "Delete" option.
+Follow the prompts to make the desired changes.
+
+
+
+
+
+
+
